@@ -1,9 +1,10 @@
-import React, { Fragment } from 'react'
+import React, { Fragment } from 'react';
+import { Button } from 'antd-mobile';
 
 export default function App() {
   return (
     <Fragment>
-     REACT SHOPPING MALL.
+      <Button type='primary'>SHOPPING MALL</Button>
     </Fragment>
   )
 }
