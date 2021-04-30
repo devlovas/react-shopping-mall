@@ -1,10 +1,18 @@
-import React, { Fragment } from 'react';
-import { Button } from 'antd-mobile';
+import React, { memo, Suspense } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
 
-export default function App() {
+import Loading from '@/components/Loading'
+import routes from '@/router'
+
+export default memo(function App() {
   return (
-    <Fragment>
-      <Button type='primary'>SHOPPING MALL</Button>
-    </Fragment>
+    <div>
+      <Suspense fallback={<Loading />}>
+        <Router>
+          { renderRoutes(routes) }
+        </Router>
+      </Suspense>
+    </div>
   )
-}
+});

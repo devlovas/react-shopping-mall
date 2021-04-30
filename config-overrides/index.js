@@ -1,6 +1,11 @@
-const { override, fixBabelImports, addPostcssPlugins } = require('customize-cra');
+const { override, addWebpackAlias, fixBabelImports, addPostcssPlugins } = require('customize-cra');
+const { resolve } = require('path');
 
 module.exports = override(
+  // 设置路径别名
+  addWebpackAlias({
+    ['@']: resolve(__dirname, "../src")
+  }),
   fixBabelImports('import', {
     libraryName: 'antd-mobile',
     style: 'css',
@@ -25,3 +30,6 @@ module.exports = override(
     require('postcss-flexbugs-fixes')
   ])
 );
+
+
+
