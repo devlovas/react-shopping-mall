@@ -12,15 +12,15 @@ const routes = [
     component: HomeTpl
   },
   {
-    path: '/Cart',
+    path: '/cart',
     component: CartTpl
   },
   {
-    path: '/Category',
+    path: '/category',
     component: CategoryTpl
   },
   {
-    path: '/Me',
+    path: '/me',
     component: MeTpl
   },
   {
