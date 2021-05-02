@@ -4,6 +4,7 @@ import App from '@/App';
 
 // Import styles.
 import '@/assets/sass/_reset.scss';
+import '@/index.scss'
 
 ReactDOM.render(
   <React.StrictMode>
