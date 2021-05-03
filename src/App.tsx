@@ -6,18 +6,20 @@ import DLTabbar from '@/components/DLTabbar'
 import Loading from '@/components/Loading'
 import routes from '@/router'
 
-import style from './App.module.scss'
+import Style from './App.module.scss'
 
 export default memo(function App() {
   return (
-    <div className={style.wrapper}>
-      <Suspense fallback={<Loading />}>
+    <div className={ Style.wrapper }>
         <Router>
-          { renderRoutes(routes) }
-        </Router>
-      </Suspense>
+          <main>
+            <Suspense fallback={<Loading />}>
+            { renderRoutes(routes) }
+            </Suspense>
+          </main>
 
-      <DLTabbar />
+          {<DLTabbar />}
+        </Router>
     </div>
   )
 });
