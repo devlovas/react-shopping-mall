@@ -1,13 +1,13 @@
 import React, { memo, useState, useEffect } from 'react'
+import { useSelectedTab, useTabHidden } from '@/store'
 import { useHistory } from 'react-router-dom'
 import { TabBar } from 'antd-mobile'
 
 import Style from '@/components/DLTabbar/index.module.scss'
 
 export default memo(function DLTabbar() {
-
-  const [selectedTab, setSelectedTab] = useState('redTab')
-  const [hidden, ] = useState(false)
+  const [selectedTab, setSelectedTab] = useSelectedTab()
+  const [hidden, ] = useTabHidden()
   const history = useHistory()
 
   const [tbListData, ] = useState([
