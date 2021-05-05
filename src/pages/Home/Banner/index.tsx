@@ -4,7 +4,6 @@ import { IBannerType } from '@/typings/home'
 import { getBanner } from '@/services'
 
 export default memo(function BannerTpl() {
-
   const [banner, setBanner] = useState<IBannerType[]>([])
 
   useEffect(async () => {
@@ -21,15 +20,15 @@ export default memo(function BannerTpl() {
           infinite
           dotActiveStyle={{backgroundColor: '#108ee9'}}
         >
-          {banner.map(data => (
+          {banner.map(val => (
             <a
-              key={data.id}
-              href={data.url}
+              key={val.id}
+              href={val.url}
               style={{ display: 'inline-block', width: '100%', height: 'auto' }}
             >
               <img
-                src={data.pic}
-                alt={data.title}
+                src={val.pic}
+                alt={val.title}
                 style={{ width: '100%', verticalAlign: 'top' }}
                 onLoad={() => {
                   // fire window resize event to change height

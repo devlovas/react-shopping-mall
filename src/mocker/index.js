@@ -13,9 +13,7 @@ function loadData(data) {
 
 const proxy = loadData({
     'GET /api/banner': './db/banner',
-    'POST /api/user': './db/user',
-    'POST /api/user/info': './db/userInfo',
-    'POST /api/userinfo/:id': './db/userInfo',
+    'GET /api/notice': './db/notice',
   }
 );
 
