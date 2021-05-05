@@ -1,0 +1,19 @@
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px 0;
+  color: #2c3e50;
+  i {
+    width: 60px;
+    font-size: 27px;
+    text-align: center;
+    display: inline-block;
+  }
+  .noticeText {
+    width: 90vw;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
