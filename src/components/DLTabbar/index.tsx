@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from 'react'
+import React, { memo, useState } from 'react'
 import { useSelectedTab, useTabHidden } from '@/store'
 import { useHistory } from 'react-router-dom'
 import { TabBar } from 'antd-mobile'
@@ -6,7 +6,7 @@ import { TabBar } from 'antd-mobile'
 import Style from '@/components/DLTabbar/index.module.scss'
 
 export default memo(function DLTabbar() {
-  const [selectedTab, setSelectedTab] = useSelectedTab()
+  const [selectedTab, ] = useSelectedTab()
   const [hidden, ] = useTabHidden()
   const history = useHistory()
 
@@ -16,11 +16,6 @@ export default memo(function DLTabbar() {
     { title: '购物车', key: 'cart', icon: 'icon-31gouwuche', selIcon: 'icon-31gouwuchexuanzhong', },
     { title: '我的', key: 'me', icon: 'icon-31wode', selIcon: 'icon-31wodexuanzhong', },
   ])
-
-  useEffect(() => {
-    const pathName = history.location.pathname.substr(1)
-    setSelectedTab(pathName) // 手动更改Location path 后同时切换菜单图标
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={ Style.wrapper }>
@@ -39,10 +34,7 @@ export default memo(function DLTabbar() {
               icon={<div style={{fontSize: '27px'}} className={`iconfont ${ data.icon }`} />}
               selectedIcon={<div style={{fontSize: '27px'}} className={`iconfont ${ data.selIcon }`} />}
               selected={selectedTab === data.key}
-              onPress={() => {
-                setSelectedTab(data.key)
-                history.push('/' + data.key)
-              }}
+              onPress={() => history.push('/' + data.key) }
             />
           )
         })
