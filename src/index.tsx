@@ -8,8 +8,6 @@ import '@/assets/sass/_reset.scss';
 import '@/index.scss'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Router children={ <App /> }/>
-  </React.StrictMode>,
+  <Router children={ <App /> }/>,
   document.getElementById('root')
 );

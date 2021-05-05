@@ -1,8 +1,4 @@
 import http from '@/services/_https'
 
-export const getUser = () => http.get('/api/user')
+export const getBanner = () => http.get('/api/banner')
 export const postUser = () => http.post('/api/user')
-
-const temp = {}
-
-export default temp
