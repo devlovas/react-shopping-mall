@@ -8,3 +8,13 @@ export interface IBannerType {
   status: number // 在线状态
   sort: number // 排序
 }
+
+export interface INoticeType {
+  id: number
+  title: string
+  note: string
+  url: string
+  type: number
+  status: number
+  sort: number
+}
