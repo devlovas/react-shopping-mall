@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import HeaderTpl from '@/pages/Home/Header'
 import BannerTpl from '@/pages/Home/Banner'
 import NoticeTpl from '@/pages/Home/Notice'
-
+import MenusTpl  from '@/pages/Home/Menus'
 import Style from './index.module.scss'
 
 export default memo(function HomeTpl (): React.ReactElement {
@@ -12,6 +12,7 @@ export default memo(function HomeTpl (): React.ReactElement {
       <HeaderTpl />
       <BannerTpl />
       <NoticeTpl />
+      <MenusTpl  />
     </div>
   )
 })
