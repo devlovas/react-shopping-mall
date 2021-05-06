@@ -1,45 +1,50 @@
-import React, { memo, useState } from 'react'
+import React, { memo, useState, useEffect, Fragment } from 'react'
 import { useSelectedTab, useTabHidden } from '@/store'
 import { useHistory } from 'react-router-dom'
 import { TabBar } from 'antd-mobile'
+import { getFtMenu } from '@/services'
 
 import Style from '@/components/DLTabbar/index.module.scss'
 
 export default memo(function DLTabbar() {
   const [selectedTab, ] = useSelectedTab()
+  const [footMenu, setFootMenu] = useState([])
   const [hidden, ] = useTabHidden()
   const history = useHistory()
 
-  const [tbListData, ] = useState([
-    { title: '首页', key: 'home', icon: 'icon-31shouye', selIcon: 'icon-31shouyexuanzhong', },
-    { title: '分类', key: 'category', icon: 'icon-leimupinleifenleileibie', selIcon: 'icon-leimupinleifenleileibie2', },
-    { title: '购物车', key: 'cart', icon: 'icon-31gouwuche', selIcon: 'icon-31gouwuchexuanzhong', },
-    { title: '我的', key: 'me', icon: 'icon-31wode', selIcon: 'icon-31wodexuanzhong', },
-  ])
+  useEffect(async () => {
+    const res = await getFtMenu()
+    setFootMenu(res.data)
+  }, [])
 
   return (
-    <div className={ Style.wrapper }>
-      <TabBar
-        unselectedTintColor="#949494"
-        tintColor="#33A3F4"
-        barTintColor="white"
-        hidden={hidden}
-      >
-       {
-        tbListData.map(data => {
-          return (
-            <TabBar.Item
-              title={ data.title }
-              key={ data.key }
-              icon={<div style={{fontSize: '27px'}} className={`iconfont ${ data.icon }`} />}
-              selectedIcon={<div style={{fontSize: '27px'}} className={`iconfont ${ data.selIcon }`} />}
-              selected={selectedTab === data.key}
-              onPress={() => history.push('/' + data.key) }
-            />
-          )
-        })
-       }
-      </TabBar>
-    </div>
+    <Fragment>
+      {
+        footMenu.lenght !== 0 &&
+        <div className={ Style.wrapper }>
+          <TabBar
+            unselectedTintColor="#949494"
+            tintColor="#33A3F4"
+            barTintColor="white"
+            hidden={hidden}
+          >
+           {
+            footMenu.map(val => {
+              return (
+                <TabBar.Item
+                  title={ val.title }
+                  key={ val.key }
+                  icon={<div style={{fontSize: '27px'}} className={`iconfont ${ val.icon }`} />}
+                  selectedIcon={<div style={{fontSize: '27px'}} className={`iconfont ${ val.selIcon }`} />}
+                  selected={selectedTab === val.key}
+                  onPress={() => history.push('/' + val.key) }
+                />
+              )
+            })
+           }
+          </TabBar>
+        </div>
+      }
+    </Fragment>
   )
 })

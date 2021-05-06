@@ -1,1 +1,2 @@
-export  { getBanner, getNotice } from '@/services/home'
+export { getBanner, getNotice } from '@/services/home'
+export { getFtMenu, } from '@/services/foot'
