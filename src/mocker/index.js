@@ -15,6 +15,7 @@ const proxy = loadData({
     'GET /api/banner': './db/banner',
     'GET /api/notice': './db/notice',
     'GET /api/footmenu': './db/footMenu',
+    'GET /api/menus': './db/menus',
   }
 );
 
