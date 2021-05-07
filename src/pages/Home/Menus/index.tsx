@@ -1,4 +1,5 @@
 import React, { memo, useState, useEffect, Fragment } from 'react'
+import { useHistory } from 'react-router-dom'
 import { Grid } from 'antd-mobile'
 import { getMenus } from '@/services'
 import { IMenusType } from '@/typings/home'
@@ -7,6 +8,7 @@ import Style from '@/pages/Home/Menus/index.module.scss'
 export default memo(function MenusTpl () {
 
   const [menus, setMenus] = useState<IMenusType[]>([])
+  const history = useHistory()
 
   useEffect(async () => {
     const res = await getMenus()
@@ -28,6 +30,9 @@ export default memo(function MenusTpl () {
               </div>
             </div>
           )}
+          onClick={dataItem => {
+            history.push(dataItem.url)
+          }}
         />
       }
     </Fragment>
