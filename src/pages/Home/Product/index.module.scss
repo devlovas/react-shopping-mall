@@ -1,0 +1,42 @@
+.wrapper {
+  width: 100vw;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+  .product {
+    width: 345px;
+    height: auto;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    img {
+      width: 100%
+    }
+    h2 {
+      color: #222f3e;
+      padding: 0 10px;
+      line-height: 37px;
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+    em {
+      color: #c0392b;
+      line-height: 70px;
+      padding: 0 10px;
+      font-size: 25px;
+      span {
+        margin-left: 5px;
+        font-size: 32px;
+      }
+    }
+    > span {
+      color: #8395a7;
+      font-size: 23px;
+      margin-left: 20px;
+    }
+  }
+}
