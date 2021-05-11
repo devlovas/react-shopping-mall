@@ -7,6 +7,7 @@ const CategoryTpl = lazy(() => import('@/pages/Category'));
 const MeTpl = lazy(() => import('@/pages/Me'));
 const SearchTpl = lazy(() => import('@/pages/Search'));
 const LoginTpl = lazy(() => import('@/pages/Login'));
+const DetailTpl = lazy(() => import('@/components/Detail'))
 
 const routes = [
   {
@@ -32,6 +33,10 @@ const routes = [
   {
     path: '/login',
     component: LoginTpl
+  },
+  {
+    path: '/product/detail/:id',
+    component: DetailTpl
   },
   {
     path: '/',

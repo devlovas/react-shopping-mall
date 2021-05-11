@@ -1,4 +1,5 @@
 import React, { memo, useState, useEffect, Fragment } from 'react'
+import { useHistory } from 'react-router-dom'
 import Style from '@/pages/Home/Product/index.module.scss'
 import { IProductType } from '@/typings'
 import { getProduct } from '@/services'
@@ -6,6 +7,7 @@ import { getProduct } from '@/services'
 export default memo(function ProductTpl (): React.ReactElement {
 
   const [product, setProduct] = useState([])
+  const history = useHistory()
 
   useEffect(async () => {
     try{
@@ -21,7 +23,11 @@ export default memo(function ProductTpl (): React.ReactElement {
           {
             product.map(dataItem => {
               return (
-                <div className={Style.product}>
+                <div className={Style.product}
+                  onClick={
+                    () => history.push(`/product/detail/${dataItem.id}`)
+                  }
+                >
                   <img src={dataItem.pics[0]} alt="" />
                   <h2>{dataItem.name}</h2>
                   <em>

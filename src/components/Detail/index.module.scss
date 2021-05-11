@@ -1,0 +1,101 @@
+.wrapper {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  position: relative;
+  .minImgs {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    padding: 10px 0;
+    justify-content: center;
+    background-color: #eee;
+    li  > img {
+      width: 100px;
+      height: 100px;
+      margin: 0 10px;
+      box-sizing: border-box;
+    }
+  }
+  .head_menu_bar {
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    position: absolute;
+    padding: 0 20px;
+    left: 0;
+    top: 0;
+    .head_back, .head_nav_btn {
+      width: 62px;
+      height: 62px;
+      border-radius: 50px;
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoBAMAAAB+0KVeAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAbUExURUdwTP///////////////////////////////xb9HQ4AAAAIdFJOUwD6i0/UdjQCdVO0QgAAAEZJREFUKM9jYKAiKMAixiqSgCmo0eGAIcbUgUVQo6PRAItC4WGjkBWbQhYsCrELYtWO1SLsThoWSh2IS2DYkyJDQQE1kj4AQAEnj84DdFIAAAAASUVORK5CYII=) no-repeat 50%;
+      background-size: 38px;
+      background-color: #666;
+      outline: none;
+      border: none;
+    }
+    .head_nav_btn {
+      background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoBAMAAAB+0KVeAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAPUExURUdwTP///////////////xPgMRoAAAAEdFJOUwDmiAYExX3+AAAAOUlEQVQoz2NgGAV0AEaCyiCKWVHIAMFVcXECcZhcXBQY4FwRF0cQh9HFRYABzsUqiFU7VotGAc0BAFnhCfdBrTVKAAAAAElFTkSuQmCC) no-repeat 50%;
+      background-size: 38px;
+      background-color: #666;
+    }
+  }
+}
+
+.buyArea {
+  width: 100vw;
+  padding: 20px;
+  box-sizing: border-box;
+  .price_wrap {
+    em {
+      color: #c0392b;
+      line-height: 70px;
+      padding: 0 10px;
+      font-size: 35px;
+      span {
+        margin-left: 5px;
+        font-size: 50px;
+      }
+    }
+    .cheaper_info, .favour {
+      float: right;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 20px;
+      font-size: 18px;
+      &:before {
+        content: '';
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAA5UExURUdwTCYmJiYmJicnJyoqKiYmJikpKSYmJiYmJiYmJjAwMCYmJicnJycnJyYmJicnJyYmJiYmJiYmJjcFA2kAAAASdFJOUwDZ60YWwif3hpoGbVO5eTTlqtOeNgoAAAE0SURBVDjLtVRHAsMgDIMwzAhJyv8fW7NneqtPiRGSbAOE/CUMU44CAHWKmT1EavAtQMsVwrWfQ/MJcx4hTfUpueHy1DT8HueAsSEnWJdhIqRsl1FhG5vIWSBXTSvQ8NVmICuKEqsSu5INoiAX6dAx33aFo39XxTLcPsmDerJjWQSRU+edT/rElj05g58igYF3VeqwUKviEGVskc0bPfWNOhpG6c/QsjQcPbT5QwhuvItamzAUvRupCcG+FkvDKSimcBZxxfxgMhHfMcVAxNDPyNR52oGSJ6yuzr/qVbVc3X24OlxYfOc+9bEy5Y7PMXrKs5sDmlQ6BWwDUs10PE9it/ByMieJ8YzbtwZ2t+Xqzfr5IqR712HCCb4aqt3gobDL72J+C8SCODavyiXa3I4f79N7fAEdSxnDuRhlgAAAAABJRU5ErkJggg==) no-repeat;
+        background-size: 36px 36px;
+        margin-bottom: 5px;
+      }
+    }
+    .favour {
+      &:before {
+        background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAA5UExURUdwTCYmJikpKScnJywsLCYmJiYmJiYmJiYmJiYmJiYmJjAwMCcnJycnJyYmJiYmJiYmJiYmJiYmJgGRkRsAAAASdFJOUwC1I1wYyDP364bhDkZOl2+rngTqsMwAAAERSURBVDjLxZTZEoMwCEXJJmBiUvP/H1twGpeOxcfy4BhzvFwICvCPmDgRUuLpdrlFdH2E8wD+tIy7zNyPwGXB03L+iBV96IKPMbzG3ivE6IMqYlEmU+80kpdNdC4jh+5luVnl4Z4ZciWq+XArL60Cy5vld9lFtidgMWA1R2wypN6DBYXeE4i1aEFRrAM+Q6hK3oK8KomnxYIW9STVVQuqWp30abYg0j7p9T4fI3+KA82XbiGUsiQdqUTEH+ciB3KxNucnSGelPkF6PL19eT4mlY+Tvto6DzCOhNL2yyzcKW0D2Nn0pJRqJW9DkLdvbfUmBNA2H06+peCo7R3/nhx3LYmRb/8IO8bmsLZElJqHf8YbVWQUJtFZYp0AAAAASUVORK5CYII=) no-repeat;
+        background-size: 36px 36px;
+      }
+    }
+  }
+  .fn_wrap {
+    h2 {
+      line-height: 47px;
+      margin-bottom: 20px;
+    }
+    .itemDesc {
+      color: #535c68;
+      font-size: 23px;
+    }
+  }
+}
