@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { NavBar, SearchBar } from 'antd-mobile'
 import style from '@/pages/Home/Header/index.module.scss'
 
-export default memo(function HeaderTpl() {
+export default memo(function HeaderTpl(): React.ReactElement {
   const history = useHistory()
 
   return (

@@ -5,14 +5,14 @@ import { getMenus } from '@/services'
 import { IMenusType } from '@/typings/home'
 import Style from '@/pages/Home/Menus/index.module.scss'
 
-export default memo(function MenusTpl () {
+export default memo(function MenusTpl (): React.ReactElement {
 
   const [menus, setMenus] = useState<IMenusType[]>([])
   const history = useHistory()
 
   useEffect(async () => {
-    const res = await getMenus()
-    setMenus(res.data)
+    try { setMenus((await getMenus()).data)
+    } catch(err) {console.log(err)}
   }, [])
 
   return (
@@ -22,6 +22,7 @@ export default memo(function MenusTpl () {
         <Grid data={menus}
           columnNum={4}
           hasLine={false}
+          onClick={dataItem => history.push(dataItem.url)}
           renderItem={dataItem => (
             <div className={Style.wrapper}>
               <img src={dataItem.icon} alt="" />
@@ -30,9 +31,6 @@ export default memo(function MenusTpl () {
               </div>
             </div>
           )}
-          onClick={dataItem => {
-            history.push(dataItem.url)
-          }}
         />
       }
     </Fragment>

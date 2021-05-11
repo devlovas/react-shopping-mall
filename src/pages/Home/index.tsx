@@ -7,7 +7,6 @@ import ProductTpl from '@/pages/Home/Product'
 import Style from './index.module.scss'
 
 export default memo(function HomeTpl (): React.ReactElement {
-
   return (
     <div className={ Style.wrapper }>
       <HeaderTpl />

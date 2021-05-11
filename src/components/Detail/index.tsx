@@ -34,6 +34,7 @@ export default memo(function DetailTpl(props: React.PropsWithChildren<any>): Rea
                 product[0].pics.map((url, index) => (
                   <img
                     src={url}
+                    key={index}
                     style={{ width: '100%', verticalAlign: 'top' }}
                     onLoad={() => {
                       window.dispatchEvent(new Event('resize'));
@@ -65,11 +66,11 @@ export default memo(function DetailTpl(props: React.PropsWithChildren<any>): Rea
               <button className={Style.head_nav_btn}></button>
             </div>
           </header>
+
           <div className={Style.buyArea}>
             <div className={Style.price_wrap}>
                 <em>
-                  ¥
-                  <span>{parseInt(product[0].price)}</span>.
+                  ¥<span>{parseInt(product[0].price)}</span>.
                   {parseFloat(product[0].price).toFixed(2).split('.')[1]}
                 </em>
                 <span className={Style.favour}>收藏</span>

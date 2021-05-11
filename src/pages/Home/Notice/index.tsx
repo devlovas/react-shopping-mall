@@ -5,13 +5,11 @@ import { INoticeType } from '@/typings/home'
 
 import Style from '@/pages/Home/Notice/index.module.scss'
 
-export default memo(function NoticeTpl() {
+export default memo(function NoticeTpl(): React.ReactElement {
   const [notice, setNotice] = useState<INoticeType[]>([])
 
   useEffect(async () => {
-    try{
-      const res = await getNotice()
-      setNotice(res.data)
+    try { setNotice((await getNotice()).data)
     } catch(err) { console.log(err) }
   }, [])
 
@@ -27,11 +25,11 @@ export default memo(function NoticeTpl() {
               autoplay
               infinite
             >
-            {
-              notice.map(val => {
-                return <div key={val.id} className={ Style.noticeText }>{val.title}</div>
-              })
-            }
+              {
+                notice.map(val => (
+                  <div key={val.id} className={ Style.noticeText }>{val.title}</div>
+                ))
+              }
             </Carousel>
         </div>
       }
